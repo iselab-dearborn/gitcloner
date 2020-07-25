@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>Cloner</name>
-    <description>Clone a bunch of git projects</description>
+    <description>A java project for cloning a bunch of git projects</description>
     <url>http://iselab.us</url>
 
     <properties>
