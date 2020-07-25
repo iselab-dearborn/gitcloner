@@ -30,10 +30,10 @@ public class Launcher {
     @Option(names = { "-t", "--threads" }, description = "The number of threads >= 1. Default: ${DEFAULT-VALUE}")
     protected int nThreads = 6;
     
-    public static final String version = "0.0.1";
+    public static final String version = Launcher.class.getPackage().getImplementationVersion();
     
     public static void main(String[] args) throws Exception {
-
+        
         Launcher launcher = CommandLine.populateCommand(new Launcher(), args);
         
         launcher.run();
