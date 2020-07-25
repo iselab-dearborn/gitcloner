@@ -41,6 +41,13 @@ jobs:
                     git add pom.xml
                     git commit -m "Prepare for next version"
             
+            -   name: Push changes # push the output folder to your repo
+                uses: ad-m/github-push-action@master
+                with:
+                    branch: master
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    force: true
+            
             -   name: Create Release
                 id: create_release
                 uses: actions/create-release@v1
