@@ -7,6 +7,7 @@ name: Create Release
 on:
     workflow_dispatch:
         # Inputs the workflow accepts.
+        branches: [ master ]
         inputs:
             version:
                 # Friendly description to be shown in the UI instead of 'name'
