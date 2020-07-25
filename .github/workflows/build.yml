@@ -30,7 +30,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Save on Github Packages
-      run: mvn deploy -Dregistry=https://maven.pkg.github.com/iselab-dearborn -Dtoken=${{ secrets.GITHUB_TOKEN }}
+      run: mvn -B deploy
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: mkdir staging && cp target/*.jar staging
     - uses: actions/upload-artifact@v2
       with:
