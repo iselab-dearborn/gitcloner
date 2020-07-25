@@ -43,10 +43,10 @@ jobs:
                 
             -   name: Commit files # commit the output folder
                 run: |
-                    git config --local user.email "thiagodnf@github.com"
-                    git config --local user.name "Thiago Ferreira"
+                    git config --local user.email "actions@github.com"
+                    git config --local user.name "Github Actions"
                     git add pom.xml
-                    git commit -m "Prepare for next version"
+                    git commit -m "Prepare for next version ${{ github.event.inputs.version }}"
             
             -   name: Push changes # push the output folder to your repo
                 uses: ad-m/github-push-action@master
