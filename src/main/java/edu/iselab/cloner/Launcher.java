@@ -21,15 +21,19 @@ import picocli.CommandLine.Option;
 @ToString
 public class Launcher {
     
+    /** File to be processed */
     @Option(names = { "-i", "--input" }, description = "File to be processed. Default: ${DEFAULT-VALUE}")
     protected Path input = Paths.get(System.getProperty("user.dir")).resolve("repos.txt");
     
+    /** Output folder where the data will be storaged */
     @Option(names = { "-o", "--output" }, description = "Output folder where the data will be storaged. Default: ${DEFAULT-VALUE}")
     protected Path output = Paths.get(System.getProperty("user.dir")).resolve("output");
     
+    /** The number of threads. The value should be &#62; 1 */
     @Option(names = { "-t", "--threads" }, description = "The number of threads >= 1. Default: ${DEFAULT-VALUE}")
     protected int nThreads = 6;
     
+    /** App's Version */
     public static final String version = Launcher.class.getPackage().getImplementationVersion();
     
     public static void main(String[] args) throws Exception {
@@ -91,7 +95,7 @@ public class Launcher {
 
             executor.submit(() -> {
 
-                GitUtils.clone(output, project);
+                GitUtils.clone(project, output);
                 
                 latch.countDown();
                 
