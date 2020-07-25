@@ -13,11 +13,37 @@ import org.eclipse.jgit.api.Git;
 import edu.iselab.cloner.model.Project;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Utility class for deal with git commands
+ *
+ * @author Thiago Ferreira
+ * @since 2020-08-25
+ * @version 1.0
+ */
 @Slf4j
 public class GitUtils {
     
+    /**
+     * The regex pattern used for validating a git url. It should follow ^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+).git$
+     */
     public static final Pattern gitUrlRegex = Pattern.compile("^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+).git$");
 
+    /**
+     * Private Constructor. Since this class is a utility one, it is allowed to
+     * create an instance of it
+     */
+    private GitUtils() {
+        throw new AssertionError("Not allowed");
+    }
+    
+    /**
+     * Parse a git URL and return an instance of {@link Project}. If the url is invalid, an
+     * RuntimeException is threw.
+     * 
+     * @param gitUrl the gir url to be processed. It should not be null or empty, and
+     *               follow the pattern {@link GitUtils#gitUrlRegex}
+     * @return an instance of {@link Project}.
+     */
     public static Project parseOwnerAndRepo(String gitUrl) {
         
         checkNotNull(gitUrl, "gitUrl should not be null");
@@ -39,7 +65,16 @@ public class GitUtils {
         throw new RuntimeException(String.format("%s is not in a valid git url", gitUrl));
     }
     
-    public static void clone(Path output, Project project) {
+    /**
+     * Clone a {@link Project} given an output folder
+     *
+     * @param project the {@link Project} to be cloned. It should not be null
+     * @param output the output folder. It should not be null
+     */
+    public static void clone(Project project, Path output) {
+        
+        checkNotNull(output, "output should not be null");
+        checkNotNull(project, "project should not be null");
         
         Path directory = output.resolve(project.getDirectory());
 
