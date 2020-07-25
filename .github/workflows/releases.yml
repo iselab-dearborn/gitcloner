@@ -33,6 +33,13 @@ jobs:
             
             -   name: Build with Maven
                 run: mvn -B package --file pom.xml
+                
+            -   name: Commit files # commit the output folder
+                run: |
+                    git config --local user.email "thiagodnf@github.com"
+                    git config --local user.name "Thiago Ferreira"
+                    git add pom.xml
+                    git commit -m "Prepare for next version"
             
             -   name: Create Release
                 id: create_release
