@@ -102,7 +102,6 @@ public class Launcher {
                 log.info("Progress: {} out of {}", projects.size() - latch.getCount(), projects.size());
 
                 if (latch.getCount() == 0) {
-                    executor.shutdown();
                     log.info("Done");
                 }
             });
