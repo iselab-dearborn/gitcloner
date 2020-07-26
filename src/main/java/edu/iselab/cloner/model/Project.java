@@ -17,7 +17,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-public class Project {
+public class Project{
 
     /** Git URL */
     protected String gitUrl;

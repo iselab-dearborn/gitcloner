@@ -1,1 +1,11 @@
-https://github.com/thiagodnf/aco-simulator.git
+https://github.com/thiagodnf/jmetrics.git
+https://github.com/afro-gum/frameworks-base.git
+https://github.com/iselab-dearborn/grocery.git
+https://github.com/thiagodnf/minijava.git
+https://github.com/thiagodnf/jacof.git
+https://github.com/thiagodnf/ms-email.git
+https://github.com/thiagodnf/visjs-extras-groupsequence.git
+https://github.com/thiagodnf/compare-prices-among-countries.git
+https://github.com/thiagodnf/covid-19-simulation.git
+https://github.com/thiagodnf/thymeleaf-extras-input-attributes.git
+https://github.com/thiagodnf/invalid.git

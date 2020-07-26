@@ -9,8 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.lib.ProgressMonitor;
 
 import edu.iselab.cloner.model.Project;
+import edu.iselab.cloner.task.CloneTask;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -70,23 +72,36 @@ public class GitUtils {
      *
      * @param project the {@link Project} to be cloned. It should not be null
      * @param output the output folder. It should not be null
+     * @param progressMonitor the progress monitor. It should not be null
      */
-    public static void clone(Project project, Path output) {
+    public static void clone(Project project, Path output, ProgressMonitor progressMonitor) {
         
         checkNotNull(output, "output should not be null");
         checkNotNull(project, "project should not be null");
+        checkNotNull(progressMonitor, "progressMonitor should not be null");
         
         Path directory = output.resolve(project.getDirectory());
 
         if (Files.exists(directory)) {
+            
+            if (progressMonitor instanceof CloneTask) {
+                ((CloneTask) progressMonitor).send("It is already cloned");
+            }
+            
             return;
         }
         
         try {
             Git.cloneRepository()
                 .setURI(project.getGitUrl())
+                .setProgressMonitor(progressMonitor)
                 .setDirectory(directory.toFile()).call();
         } catch (Exception ex) {
+            
+            if (progressMonitor instanceof CloneTask) {
+                ((CloneTask) progressMonitor).send("Exception: " + ex.getMessage());
+            }
+            
             log.error(ex.getMessage(), ex);
         } 
     }
