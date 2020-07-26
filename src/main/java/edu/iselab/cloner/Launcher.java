@@ -5,9 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import edu.iselab.cloner.model.Project;
@@ -29,10 +26,6 @@ public class Launcher {
     @Option(names = { "-o", "--output" }, description = "Output folder where the data will be storaged. Default: ${DEFAULT-VALUE}")
     protected Path output = Paths.get(System.getProperty("user.dir")).resolve("output");
     
-    /** The number of threads. The value should be &#62; 1 */
-    @Option(names = { "-t", "--threads" }, description = "The number of threads >= 1. Default: ${DEFAULT-VALUE}")
-    protected int nThreads = 6;
-    
     /** App's Version */
     public static final String version = Launcher.class.getPackage().getImplementationVersion();
     
@@ -52,7 +45,6 @@ public class Launcher {
         log.info("Parameters");
         log.info("Input: {}", input);
         log.info("Output: {}", output);
-        log.info("Threads: {}", nThreads);
         
         log.info("***************************************");
     }
@@ -87,24 +79,15 @@ public class Launcher {
             Files.createDirectories(output);
         }
         
-        ExecutorService executor = Executors.newFixedThreadPool(nThreads);
-        
-        CountDownLatch latch = new CountDownLatch(projects.size());
-        
-        for (Project project : projects) {
+        for (int i = 0; i < projects.size(); i++) {
 
-            executor.submit(() -> {
+            Project project = projects.get(i);
 
-                GitUtils.clone(project, output);
-                
-                latch.countDown();
-                
-                log.info("Progress: {} out of {}", projects.size() - latch.getCount(), projects.size());
+            log.info("[{}/{}] Cloning \"{}\"", i + 1, projects.size(), project.getDirectory());
 
-                if (latch.getCount() == 0) {
-                    log.info("Done");
-                }
-            });
+            GitUtils.clone(project, output);
         }
+        
+        log.info("Done");
     }
 }

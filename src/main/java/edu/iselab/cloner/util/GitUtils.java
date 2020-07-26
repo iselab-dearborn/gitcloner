@@ -3,12 +3,14 @@ package edu.iselab.cloner.util;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.lib.TextProgressMonitor;
 
 import edu.iselab.cloner.model.Project;
 import lombok.extern.slf4j.Slf4j;
@@ -85,6 +87,7 @@ public class GitUtils {
         try {
             Git.cloneRepository()
                 .setURI(project.getGitUrl())
+                .setProgressMonitor(new TextProgressMonitor(new PrintWriter(System.out)))
                 .setDirectory(directory.toFile()).call();
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
