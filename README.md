@@ -11,9 +11,9 @@ A java project for cloning a bunch of git projects
 
 # Screenshot
 
-<div align="center">
+<div >
     <kbd>
-        <img src="https://user-images.githubusercontent.com/114015/101726499-a695eb80-3a80-11eb-90cd-f4a79a5cd1a6.gif"/ width="100%">
+        <img src="https://user-images.githubusercontent.com/114015/101726499-a695eb80-3a80-11eb-90cd-f4a79a5cd1a6.gif" width="100%">
     </kbd>
     <br/><br/>
 </div>
