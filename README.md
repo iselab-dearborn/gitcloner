@@ -25,7 +25,7 @@ edu.iselab.gitcloner.Launcher
 
 ## Download Repos
 
-Once the tool is running, push the "Submit" button and upload a .txt file with the list of repos to be cloned. Please make sure to include each git url in each line. If you want to see some examples, please [click here](https://github.com/iselab-dearborn/gitcloner/tree/master/src/main/resources/assets/examples). 
+Once the tool is running, push the "Submit" button and upload a .txt file with the list of repos to be cloned. Please make sure to include each git url in each line. If you would like to see some examples, please [click here](https://github.com/iselab-dearborn/gitcloner/tree/master/src/main/resources/assets/examples). 
 
 ## Screenshot
 
