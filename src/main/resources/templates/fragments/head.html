@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-    <head th:fragment="title(title)">
+    <head th:fragment="default">
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,8 +14,10 @@
         
         <meta name="robots" content="index, follow" />
         
-        <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
-        <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" th:href="@{/images/favicons/apple-touch-icon.png}">
+		<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicons/favicon-32x32.png}">
+		<link rel="icon" type="image/png" sizes="16x16" th:href="@{/images/favicons/favicon-16x16.png}">
+		<link rel="manifest" th:href="@{/site.webmanifest}">
         
         <!-- Vendor -->
         <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}" />
