@@ -1,7 +1,7 @@
 
 <img src="https://user-images.githubusercontent.com/114015/101727490-954dde80-3a82-11eb-9ac5-0be72b7b59ab.png" width="450px"/>
 
-A java project for cloning a bunch of git projects
+A web tool for cloning several git projects
 
 [![GitHub Release](https://img.shields.io/github/release/iselab-dearborn/gitcloner.svg)](https://github.com/iselab-dearborn/gitcloner/releases/latest)
 [![GitHub contributors](https://img.shields.io/github/contributors/iselab-dearborn/gitcloner.svg)](https://github.com/iselab-dearborn/gitcloner/graphs/contributors)
