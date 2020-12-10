@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"></head>
+<body>
+	<div th:replace="fragments/navbar :: default"></div>
+	<main>
+		<div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+				    <div class="card card-shadow">
+		                <div class="card-header" th:text="${project.getDisplayName()}">Project</div>
+		                <div class="card-body">
+                            <div class="form-group">
+                                <label>Status:</label>
+                                <span class="description" th:classappend="${project.cloneStatus.color}" th:text="${project.cloneStatus}"></span>
+                            </div>
+		                    <div class="form-group">
+								<label for="error-message">Error Messages</label>
+								<textarea class="form-control" id="error-message" rows="15" th:text="${project.errorMessage}"></textarea>
+							</div>
+							<a th:href="@{/}" class="btn btn-outline-secondary">Back</a>
+		                </div>
+	                </div>
+	                <div class="col-lg-3"></div>
+                </div>
+            </div>
+		</div>
+	</main>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

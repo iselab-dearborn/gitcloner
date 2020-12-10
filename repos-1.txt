@@ -1,0 +1,10 @@
+https://github.com/manparvesh/tibc.git
+https://github.com/manparvesh/udpj.git
+https://github.com/manparvesh/competitive-helper.git
+https://github.com/thiagodnf/fruit-game-js.git
+https://github.com/thiagodnf/color-palettes.git
+https://github.com/thiagodnf/thymeleaf-extras-input-attributes.git
+https://github.com/sultan99/react-on-lambda.git
+https://github.com/thiagodnf/csv-graph.git
+https://github.com/thiagodnf/covid-19-simulation.git
+https://github.com/google/gson.git

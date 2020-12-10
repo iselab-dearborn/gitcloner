@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <head th:fragment="title(title)">
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="A tool for cloning several git projects" />
+        <meta name="author" content="ISE Lab" />
+        <meta name="keywords" content="iselab,git,cloner" />
+        
+        <meta name="robots" content="index, follow" />
+        
+        <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+        <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+        
+        <!-- Vendor -->
+        <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}" />
+        
+        <!-- Application -->
+        <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+        
+        <title>GitCloner - ISE Lab</title>
+    </head>
+</body>
+</html>
