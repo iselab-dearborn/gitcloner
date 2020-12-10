@@ -283,4 +283,4 @@ $RECYCLE.BIN/
 
 
 files/
-#*.db
+*.db
