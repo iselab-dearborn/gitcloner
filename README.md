@@ -18,6 +18,20 @@ A java project for cloning a bunch of git projects
     <br/><br/>
 </div>
 
+## Usage
+
+Basically you can clone this repo in your localhost machine or download the .zip file and run the .jar file. In both case, once the tool is running, please open your browser and type:
+
+```
+localhost:8081
+```
+
+If you want to run it in your machine, you have to run the main class located at:
+
+```java
+edu.iselab.gitcloner.Launcher
+```
+
 ## Questions or Suggestions
 
 Feel free to create <a href="https://github.com/iselab-dearborn/gitcloner/issues">issues</a> here as you need
