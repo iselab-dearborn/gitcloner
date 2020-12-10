@@ -1,5 +1,5 @@
 
-<img src="https://user-images.githubusercontent.com/114015/88461737-11e57500-ce74-11ea-998c-2dbeb4678ac3.png" width="300px"/>
+<img src="https://user-images.githubusercontent.com/114015/101727490-954dde80-3a82-11eb-9ac5-0be72b7b59ab.png" width="350px"/>
 
 A java project for cloning a bunch of git projects
 
