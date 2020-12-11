@@ -5,13 +5,14 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import edu.iselab.gitcloner.service.SettingsService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -52,11 +53,9 @@ public class AsyncConfiguration implements AsyncConfigurer {
         }
     }
     
-    @Value("${app.async.core-pool-size}")
-    private int corePoolSize = 1;
     
-    @Value("${app.async.max-pool-size}")
-    private int maxPoolSize = 2;
+    @Autowired
+    private SettingsService settingsService;
     
     private Map<String, Task> runningTasks = new ConcurrentHashMap<>();
     
@@ -66,9 +65,9 @@ public class AsyncConfiguration implements AsyncConfigurer {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         
         // corePoolSize is the minimum number of workers to keep alive
-        executor.setCorePoolSize(corePoolSize);
+        executor.setCorePoolSize(settingsService.getCorePoolSize());
         // maxPoolSize defines the maximum number of threads that can ever be created. 
-        executor.setMaxPoolSize(maxPoolSize);
+        executor.setMaxPoolSize(settingsService.getMaxPoolSize());
         executor.setThreadNamePrefix("Task-");
         executor.initialize();
         

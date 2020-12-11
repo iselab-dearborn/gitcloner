@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.iselab.gitcloner.persistence.dto.SubmissionDTO;
 import edu.iselab.gitcloner.persistence.entity.Project;
+import edu.iselab.gitcloner.service.SettingsService;
 import edu.iselab.gitcloner.service.SubmissionService;
 import edu.iselab.gitcloner.util.AlertUtils;
 
@@ -25,10 +26,14 @@ public class SubmissionController {
     @Autowired
     private SubmissionService submissionService;
     
+    @Autowired
+    private SettingsService settingsService;
+    
     @GetMapping("/create")
     public String create(Model model, SubmissionDTO submissionDTO) {
         
         model.addAttribute("submissionDTO", submissionDTO);
+        model.addAttribute("output", settingsService.getOutput());
         
         return "submit";
     }

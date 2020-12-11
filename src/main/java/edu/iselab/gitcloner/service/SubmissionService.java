@@ -27,22 +27,16 @@ public class SubmissionService {
     @Autowired
     private ProjectService projectService;
     
-    @Value("${app.output}")
-    private String output;
+    @Autowired
+    private SettingsService settingsService;
     
     public List<Project> upload(SubmissionDTO submissionDTO) {
         
         checkNotNull(submissionDTO, "submissionDTO should not be null");
         
-        if (StringUtils.isBlank(output)) {
-            output = System.getProperty("user.home");
-        }
-        
-        System.out.println(output);
-        
-        Path targetDirectory = Paths.get(output).resolve("gitcloner");
+        Path output = settingsService.getOutput();
 
-        FileUtils.createFolderIfNotExists(targetDirectory);
+        FileUtils.createFolderIfNotExists(output);
         
         MultipartFile file = submissionDTO.getFile();
 
@@ -58,7 +52,7 @@ public class SubmissionService {
 
                 Project project = GitUtils.parseOwnerAndRepo(line);
 
-                project.setDirectory(targetDirectory.resolve(project.getDirectoryName()));
+                project.setDirectory(output.resolve(project.getDirectoryName()));
 
                 projects.add(project);
             }
@@ -74,7 +68,7 @@ public class SubmissionService {
 
             project = projectService.save(project);
 
-            cloneService.execute(targetDirectory, project);
+            cloneService.execute(project);
 
             addedProjects.add(project);
         }

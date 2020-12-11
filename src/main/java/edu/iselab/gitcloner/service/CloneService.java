@@ -32,9 +32,8 @@ public class CloneService {
     private TaskService taskService;
     
     @Async
-    public void execute(Path targetDirectory, Project project) {
+    public void execute(Project project) {
         
-        checkNotNull(targetDirectory, "targetDirectory should not be null");
         checkNotNull(project, "project should not be null");
         
         projectService.updateStatus(project, TaskStatus.RUNNING);
