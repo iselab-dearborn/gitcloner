@@ -14,22 +14,34 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.base.Charsets;
 
+/**
+ * File Utilities
+ * 
+ * @author Thiago Ferreira
+ * @since 1.0.5
+ */
 public class FileUtils {
 
-    public static void createFolderIfNotExists(Path path) {
+    /**
+     * Create a empty folder if the provided path does not exist
+     * 
+     * @param folder {@code Path} to be created
+     * @throws NullPointerException if {@code folder} is null
+     */
+    public static void createFolderIfNotExists(Path folder) {
 
-        checkNotNull(path, "path should not be null");
-        
-        if (!Files.exists(path)) {
+        checkNotNull(folder, "path should not be null");
+
+        if (!Files.exists(folder)) {
 
             try {
-                Files.createDirectories(path);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                Files.createDirectories(folder);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         }
     }
-    
+
     public static String readContentAsString(MultipartFile file) {
 
         checkNotNull(file, "file should not be null");
@@ -44,23 +56,20 @@ public class FileUtils {
 
         return content;
     }
-    
+
     public static void delete(Path directory) {
-        
+
         checkNotNull(directory, "directory should not be null");
         checkArgument(!StringUtils.isBlank(directory.toString()), "directory should not be blank");
-        
+
         if (!Files.exists(directory)) {
             return;
         }
-        
+
         try {
-            
-            Files.walk(directory)
-                .sorted(Comparator.reverseOrder())
-                .map(Path::toFile)
-                .forEach(File::delete);
-            
+
+            Files.walk(directory).sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
+
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

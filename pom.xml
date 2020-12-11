@@ -12,7 +12,7 @@
 
     <groupId>edu.iselab</groupId>
     <artifactId>gitcloner</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 
     <name>GitCloner</name>
     <description>A web tool for cloning several git projects</description>
@@ -193,7 +193,6 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <source>${java.version}</source>
-                    <target>${java.version}</target>
                 </configuration>
                 <executions>
                     <execution>
@@ -213,7 +212,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.6</version>
                 <executions>
                     <execution>
                         <goals>
@@ -231,15 +230,5 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/iselab-dearborn/gitcloner</url>
-        </repository>
-    </distributionManagement>
-
 </project>
