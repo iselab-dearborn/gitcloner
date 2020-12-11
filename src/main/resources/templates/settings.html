@@ -11,22 +11,26 @@
 				    <div class="card card-shadow">
 		                <div class="card-header">Settings</div>
 		                <div class="card-body">
-                            <div class="form-group">
-                                <label>Output:</label>
-                                <br/>
-                                <code class="description" th:text="${settings.output}"></code>
-                            </div>
-                            <div class="form-group">
-                                <label>Core Pool Size:</label>
-                                <br/>
-                                <code class="description" th:text="${settings.corePoolSize}"></code>
-                            </div>
-                            <div class="form-group">
-                                <label>Max Pool Size:</label>
-                                <br/>
-                                <code class="description" th:text="${settings.maxPoolSize}"></code>
-                            </div>
-		                    <a th:href="@{/}" class="btn btn-outline-secondary">Back</a>
+							<div class="mb-1 row">
+							    <label class="col-3 col-form-label text-right">Output:</label>
+							    <div class="col-9 mt-1">
+							        <code th:text="${settings.output}"></code>
+							    </div>
+							</div>
+							<div class="mb-1 row">
+							    <label class="col-3 col-form-label text-right">Core Pool Size:</label>
+							    <div class="col-9 mt-1">
+							        <code th:text="${settings.corePoolSize}"></code>
+							    </div>
+							</div>
+							<div class="mb-3 row">
+							    <label class="col-3 col-form-label text-right">Max Pool Size:</label>
+							    <div class="col-9 mt-1">
+							        <code th:text="${settings.maxPoolSize}"></code></p>
+							    </div>
+							</div>
+							<hr/>
+							<a th:href="@{/}" class="btn btn-outline-secondary">Back</a>
 		                </div>
 	                </div>
 	                <div class="col-lg-3"></div>
