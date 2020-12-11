@@ -28,6 +28,20 @@ label{
     border-color: #169b6b;
 }
 
+.btn-outline-success{
+	border-color: #1cc88a;
+	color: #1cc88a;
+}
+
+.btn-outline-success:hover{
+    background-color: #17a673;
+    color: white !important;
+}
+
+
+
+
+
 .btn-primary{
     border: 1px solid #3f8abf;
     background-color: #3f8abf;
