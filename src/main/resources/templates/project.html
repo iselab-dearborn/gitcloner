@@ -11,20 +11,20 @@
 				    <div class="card card-shadow">
 		                <div class="card-header" th:text="${project.getDisplayName()}">Project</div>
 		                <div class="card-body">
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <label>Status:</label>
                                 <span class="description" th:classappend="${project.cloneStatus.color}" th:text="${project.cloneStatus}"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <label>Updated At:</label>
                                 <span class="description" th:text="${#dates.format(project.updatedAt, 'MMM dd, yyyy h:mm a')}" th:title="${project.updatedAt}"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <label>Directory:</label>
                                 <code class="description" th:text="${project.directory}"></code>
                             </div>
 		                    <div class="form-group">
-								<label for="error-message">Error Messages</label>
+								<label for="error-message">Error Messages:</label>
 								<textarea class="form-control" id="error-message" rows="10" th:text="${project.errorMessage}"></textarea>
 							</div>
 							<a th:href="@{/}" class="btn btn-outline-secondary">Back</a>

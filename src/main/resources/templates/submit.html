@@ -18,8 +18,8 @@
 		                                <input type="file" class="custom-file-input" id="file" name="file">
 		                                <label class="custom-file-label" for="file">Choose file</label>
 		                            </div>
-			                        <small class="form-text text-muted">A text file with the list of git urls (a url on each line)</small>
-		                            <span class="text-danger" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></span>
+			                        <small class="form-text text-muted">A text file with the list of git urls (a url on each line). To see an example, <a href="https://github.com/iselab-dearborn/gitcloner/blob/master/src/main/assets/examples/repos-1.txt">click here</a>.</small>
+		                            <small class="text-danger" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></small>
 			                    </div>
 			                    <hr/>
 			                    <button type="submit" class="btn btn-primary">Upload</button>
