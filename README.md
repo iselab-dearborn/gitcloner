@@ -41,7 +41,7 @@ Once the tool is running, push the "Submit" button and upload a .txt file with t
 This tool has the following parameters that you can easily be changed by using environment variables. They are:
 
 | Variable|  Description| Default Value|
-| -----| ----| ---- |
+| :-----| :----| :----: |
 | SERVER_URL | The server url | http://127.0.0.1:8081 |
 | PORT | The port |  8081 |
 | APP_SETTINGS_OUTPUT | Folder where the projects will be cloned | The user's home directory |
