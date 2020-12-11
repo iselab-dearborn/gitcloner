@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.URL;
 import com.sun.istack.NotNull;
 
 import edu.iselab.gitcloner.config.AsyncConfiguration.TaskStatus;
+import edu.iselab.gitcloner.config.JPAConfiguration.Auditable;
 import edu.iselab.gitcloner.persistence.converter.PathConverter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +28,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
 @Entity
-public class Project {
+@NoArgsConstructor
+public class Project extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -8,6 +8,9 @@ main a {
     color: #4e73df;
 }
 
+label{
+	font-weight: 500;
+}
 /*
 * ==========================================
 * Buttons
