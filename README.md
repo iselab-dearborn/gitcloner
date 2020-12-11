@@ -25,7 +25,7 @@ edu.iselab.gitcloner.Launcher
 
 ## Download Repos
 
-Once the tool is running, push the "Submit" button and upload a .txt file with the list of repos to be cloned. Please make sure to include each git url in each line. If you would like to see some examples, please [click here](https://github.com/iselab-dearborn/gitcloner/tree/master/src/main/resources/assets/examples). 
+Once the tool is running, push the "Submit" button and upload a .txt file with the list of repos to be cloned. Please make sure to include each git url in each line. If you would like to see some examples, please [click here](https://github.com/iselab-dearborn/gitcloner/tree/master/src/main/assets/examples).
 
 ## Screenshot
 
@@ -35,6 +35,20 @@ Once the tool is running, push the "Submit" button and upload a .txt file with t
     </kbd>
     <br/><br/>
 </div>
+
+## Settings
+
+This tool has the following parameters that you can easily be changed by using environment variables. They are:
+
+| Variable|  Description| Default Value|
+| -----| ----| ---- |
+| SERVER_URL | The server url | http://127.0.0.1:8081 |
+| PORT | The port |  8081 |
+| APP_SETTINGS_OUTPUT | Folder where the projects will be cloned | The user's home directory |
+| APP_SETTINGS_CORE_POOL_SIZE | Minimum number of workers to keep alive | 2 |
+| APP_SETTINGS_MAX_POOL_SIZE | Maximum number of threads that can ever be created | 5 |
+
+Please search on internet how to set those variables in your IDE or change them directly in the ```application.properties``` file (do not recommended)
 
 ## Questions or Suggestions
 
