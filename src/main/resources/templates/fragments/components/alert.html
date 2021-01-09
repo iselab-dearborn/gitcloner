@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-	<div th:fragment="default" class="container-fluid" th:if="${alertMessage}">
+	<div th:fragment="default" class="mb-3 mt-2" th:if="${alertMessage}">
 		<div th:class="${alertType}">
 			<strong><span th:text="${alertTitle}"></span></strong>
 			<span th:text="${#messages.msgWithParams(alertMessage, alertMessageParameters)}"></span>

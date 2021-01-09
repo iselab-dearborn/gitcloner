@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+	<header th:fragment="default">
+
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+
+            <span class="navbar-brand">
+                <div class="navbar-toggler-icon" id="sidebarCollapse"></div>
+                <a class="navbar-brand-name" href="/">GitCloner</a>
+            </span>
+
+            <div class="d-flex flex-row order-2 order-lg-3">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="navbarMenu">
+                <ul class="navbar-nav ml-auto">
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

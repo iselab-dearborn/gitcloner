@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head"></head>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    th:replace="fragments/layout :: layout('home', 'Home', ~{::section}, ~{::footer})">
 <body>
-	<div th:replace="fragments/navbar :: default"></div>
-	<main>
-		<div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
-				    <div class="card card-shadow">
-		                <div class="card-header">Submit</div>
-		                <div class="card-body">
-		                    <form method="POST" th:action="@{/submissions/upload}" th:object="${submissionDTO}" autocomplete="off" enctype="multipart/form-data">
-			                    <div class="form-group">
-					                <label for="file">File</label>
-					                <div class="custom-file">
-		                                <input type="file" class="custom-file-input" id="file" name="file">
-		                                <label class="custom-file-label" for="file">Choose file</label>
-		                            </div>
-			                        <small class="form-text text-muted">A text file with the list of git urls (a url on each line). To see an example, <a href="https://github.com/iselab-dearborn/gitcloner/blob/master/src/main/assets/examples/repos-1.txt">click here</a>.</small>
-		                            <small class="text-danger" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></small>
-			                    </div>
-			                    <hr/>
-			                    <button type="submit" class="btn btn-primary">Upload</button>
-			                    <a th:href="@{/}" class="btn btn-outline-secondary">Cancel</a>
-		                    </form>
-		                </div>
-	                </div>
-	                <div class="col-lg-3"></div>
-                </div>
+    <section>
+
+        <div class="row header">
+            <div class="col">
+                <h3>Add Projects</h3>
             </div>
-		</div>
-	</main>
-	<div th:replace="fragments/footer :: footer"></div>
+            <div class="col-auto">
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" th:action="@{/submissions/upload}" th:object="${submissionDTO}" autocomplete="off" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">File</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="file" name="file">
+                            <label class="custom-file-label" for="file">Choose file</label>
+                        </div>
+                        <small class="form-text text-muted">A text file with the list of git urls (a url on each line). To see an example, <a href="https://github.com/iselab-dearborn/gitcloner/blob/master/src/main/assets/examples/repos-1.txt">click here</a>.</small>
+                        <small class="text-danger" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></small>
+                    </div>
+                    <hr/>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <a th:href="@{/}" class="btn btn-outline-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
 </body>
 </html>

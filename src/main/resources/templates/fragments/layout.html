@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    th:fragment="layout(menu, title, content, footer)">
+<head th:replace="fragments/components/head :: default(${title})"></head>
+<body>
+    <div th:replace="fragments/components/navbar :: default"></div>
+
+    <div class="wrapper">
+
+        <nav id="sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <span class="nav-title">Menu</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}" th:classappend="${menu == 'home'} ? 'active' : ''">
+                        <span data-feather="home"></span> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/settings}" th:classappend="${menu == 'settings'} ? 'active' : ''">
+                        <span data-feather="settings"></span> Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main id="content">
+
+            <div class="container-fluid">
+
+                <div th:replace="fragments/components/alert :: default"></div>
+
+                <div th:replace="${content}"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div th:replace="fragments/components/footer :: footer"></div>
+
+	<div th:replace="${footer}"></div>
+</body>
+</html>

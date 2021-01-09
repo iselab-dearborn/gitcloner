@@ -1,43 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head"></head>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+    th:replace="fragments/layout :: layout('settings', 'Settings', ~{::section}, ~{::footer})">
 <body>
-	<div th:replace="fragments/navbar :: default"></div>
-	<main>
-		<div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
-				    <div class="card card-shadow">
-		                <div class="card-header">Settings</div>
-		                <div class="card-body">
-							<div class="mb-1 row">
-							    <label class="col-3 col-form-label text-right">Output:</label>
-							    <div class="col-9 mt-1">
-							        <code th:text="${settings.output}"></code>
-							    </div>
-							</div>
-							<div class="mb-1 row">
-							    <label class="col-3 col-form-label text-right">Core Pool Size:</label>
-							    <div class="col-9 mt-1">
-							        <code th:text="${settings.corePoolSize}"></code>
-							    </div>
-							</div>
-							<div class="mb-3 row">
-							    <label class="col-3 col-form-label text-right">Max Pool Size:</label>
-							    <div class="col-9 mt-1">
-							        <code th:text="${settings.maxPoolSize}"></code></p>
-							    </div>
-							</div>
-							<hr/>
-							<a th:href="@{/}" class="btn btn-outline-secondary">Back</a>
-		                </div>
-	                </div>
-	                <div class="col-lg-3"></div>
-                </div>
+	<section>
+
+        <div class="row header">
+            <div class="col">
+                <h3>Settings</h3>
             </div>
-		</div>
-	</main>
-	<div th:replace="fragments/footer :: footer"></div>
+            <div class="col-auto">
+
+            </div>
+        </div>
+
+		<div class="card">
+            <div class="card-body">
+
+                <form>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="output">Output</label>
+                        <input class="form-control" id="output" th:value="${settings.output}" readonly/>
+                        <small class="form-text text-muted">Folder where the projects will be cloned</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="corePoolSize">Core Pool Size</label>
+                        <input class="form-control" id="corePoolSize" th:value="${settings.corePoolSize}" readonly/>
+                        <small class="form-text text-muted">Minimum number of workers to keep alive</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="maxPoolSize">Max Pool Size</label>
+                        <input class="form-control" id="maxPoolSize" th:value="${settings.maxPoolSize}" readonly/>
+                        <small class="form-text text-muted">Maximum number of threads that can ever be created</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
 </body>
 </html>

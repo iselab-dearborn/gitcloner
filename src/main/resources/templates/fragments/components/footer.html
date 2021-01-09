@@ -3,28 +3,29 @@
 <head></head>
 <body>
     <footer th:fragment="footer">
-    
+
         <!-- Vendor -->
         <script type="text/javascript" th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
         <script type="text/javascript" th:src="@{/webjars/popper.js/1.16.0/dist/umd/popper.min.js}"></script>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
         <script type="text/javascript" th:src="@{/webjars/sockjs-client/1.1.2/sockjs.min.js}"></script>
         <script type="text/javascript" th:src="@{/webjars/stomp__stompjs/5.3.0/bundles/stomp.umd.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/feather-icons/4.28.0/dist/feather.min.js}"></script>
         <script type="text/javascript" th:src="'https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js'"></script>
-        
+
         <!-- Application -->
         <script type="text/javascript" th:src="@{/js/event-emitter.js}"></script>
         <script type="text/javascript" th:src="@{/js/tasks.js}"></script>
         <script type="text/javascript" th:src="@{/js/script.js}"></script>
-        
+
         <script type="text/javascript">
-            
+
             if (location.host == "127.0.0.1:8081" || location.host == "localhost:8081") {
-                
+
                 var script = document.createElement('script');
-                
+
                 script.src = "http://" + (location.host || 'localhost').split(':')[0] + ":35729/livereload.js?snipver=1"
-                        
+
                 document.head.appendChild(script);
             }
         </script>
